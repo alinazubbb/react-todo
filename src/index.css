@@ -1,69 +1,69 @@
-*{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-button{
-	width: 60px;
-	height: 30px;
-	color: #fff;
+button {
+  width: 60px;
+  height: 30px;
+  color: #fff;
 }
 
-input[type=checkbox]{
-	margin-right: 10px;
+input[type='checkbox'] {
+  margin-right: 10px;
 }
 
-.app{
-	width: 400px;
-	margin: auto;
-	background: #0000001c;
-	padding: 50px;
-	text-align: center;
+.app {
+  width: 400px;
+  margin: auto;
+  background: #0000001c;
+  padding: 50px;
+  text-align: center;
 }
 
-.todo-list{
-	list-style: none;
-	padding: 0;
+.todo-list {
+  list-style: none;
+  padding: 0;
 }
 
-.item-todo{
-	margin-bottom: 1px;
+.item-todo {
+  margin-bottom: 1px;
 }
 
 .item-text,
-input[type=text]{
-	display: inline-block;
-	width: 117px;
-	min-height: 30px;
-	margin: 0;
-	padding: 5px;
-	text-align: left;
-	vertical-align: top;
-	border: none;
-	font-size: 15px;
-	line-height: 22px;
-	letter-spacing: 0.5px;
+input[type='text'] {
+  display: inline-block;
+  width: 117px;
+  min-height: 30px;
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  vertical-align: top;
+  border: none;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
 }
 
-.add{
-	background: blue;
+.add {
+  background: blue;
 }
 
-.save{
-	background: green;
+.save {
+  background: green;
 }
 
-.remove{
-	background: red;
+.remove {
+  background: red;
 }
 
-.item-todo input[type=checkbox]:checked+span .item-text{
-	text-decoration: line-through;
+.item-todo input[type='checkbox']:checked + span .item-text {
+  text-decoration: line-through;
 }
