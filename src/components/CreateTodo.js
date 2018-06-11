@@ -8,15 +8,13 @@ class CreateTodo extends Component {
     this.state = {
       inputValue: ""
     };
-    this.changeHandler = this.changeHandler.bind(this);
-    this.addHandler = this.addHandler.bind(this);
   }
 
-  changeHandler(e) {
+  changeHandler = (e) => {
     this.setState({ inputValue: e.target.value });
   }
 
-  addHandler() {
+  addHandler = () => {
     this.props.add(this.state.inputValue);
     this.setState({ inputValue: "" });
   }

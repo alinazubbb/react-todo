@@ -10,32 +10,27 @@ class ItemTodo extends Component {
       done: false,
       edit: false
     };
-    this.doneChangeHandler = this.doneChangeHandler.bind(this);
-    this.textChangeHandler = this.textChangeHandler.bind(this);
-    this.editHandler = this.editHandler.bind(this);
-    this.saveHandler = this.saveHandler.bind(this);
-    this.removeHandler = this.removeHandler.bind(this);
   }
 
-  doneChangeHandler(e) {
+  doneChangeHandler = (e) => {
     this.setState({ done: !this.state.done });
   }
 
-  textChangeHandler(e) {
+  textChangeHandler = (e) => {
     this.setState({ text: e.target.value });
   }
 
-  editHandler(e) {
+  editHandler = (e) => {
     this.setState({ edit: !this.state.edit });
   }
 
-  saveHandler(e) {
+  saveHandler = (e) => {
     this.setState({ edit: false });
-    this.props.save(this.props.index, this.state.text);
+    this.props.save(this.props.id, this.state.text);
   }
 
-  removeHandler() {
-    this.props.remove(this.props.index);
+  removeHandler = () => {
+    this.props.remove(this.props.id);
   }
 
   render() {

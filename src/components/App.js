@@ -8,36 +8,47 @@ class App extends Component {
     super(props);
     this.state = {
       list: list
-    };
-    this.add = this.add.bind(this);
-    this.save = this.save.bind(this);
-    this.remove = this.remove.bind(this);
+    }
   }
 
-  add(inputValue) {
+  add = (inputValue) => {
     this.setState({
-      list: this.state.list.concat([
+      list: [ ...this.state.list,
         {
           id: new Date().getTime(),
           text: inputValue
         }
-      ])
+      ]
     });
   }
 
-  save(index, text) {
-    const arr = this.state.list.slice();
-    arr[index].text = text;
+  save = (id, text) => {
     this.setState({
-      list: arr
+      list: this.state.list.map((curr) => {
+        if(curr.id === id){
+          curr.text = text;
+        }
+        return curr;
+      },)
     });
   }
 
-  remove(index) {
-    const arr = this.state.list.slice();
-    arr.splice(index, 1);
+  // save(id, text) {
+  //   this.setState({
+  //     list: this.state.list.map((curr) => {
+  //       if(curr.id == id){
+  //         return {...curr, text }
+  //       }
+  //       return curr;
+  //     },)
+  //   });
+  // }
+
+  remove = (id) => {
     this.setState({
-      list: arr
+      list: this.state.list.filter(function(el){
+        return id !== el.id;
+      })
     });
   }
 
