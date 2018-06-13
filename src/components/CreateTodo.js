@@ -10,7 +10,7 @@ class CreateTodo extends Component {
   };
 
   add = () => {
-    this.props.add(this.props.state);
+    this.props.add(this.props.state.inputValue);
     this.props.change('');
   };
 
@@ -19,7 +19,7 @@ class CreateTodo extends Component {
       <div className="create-todo">
         <Input
           type="text"
-          value={this.props.state}
+          value={this.props.state.inputValue}
           changeHandler={this.change}
         />
         <Button className="add" text="Add" clickHandler={this.add} />

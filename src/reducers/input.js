@@ -1,7 +1,11 @@
-export default function input(state = '', action) {
+const initialState = {
+  inputValue: ''
+};
+
+export default function input(state = initialState, action) {
   switch (action.type) {
     case 'CHANGE':{
-      return action.payload.text;
+      return { ...state, inputValue: action.payload.text };
     }
     default:
       return state;
