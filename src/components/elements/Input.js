@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react'; 
 
-function Input(props) {
-  return (
-    <input
-      autoFocus={props.autoFocus}
-      className={props.className}
-      type={props.type}
-      value={props.value}
-      onChange={props.changeHandler}
-    />
-  );
+class Input extends Component {
+  render(){
+    return (
+      <input
+        value={this.props.value}
+        onChange={this.props.changeHandler}
+        autoFocus={this.props.autoFocus}
+        className={this.props.className}
+        type={this.props.type}
+      />
+    );
+  }
 }
 
 export default Input;

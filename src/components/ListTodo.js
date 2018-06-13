@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ItemTodo from './ItemTodo';
+import { connect } from 'react-redux';
 
-function ListTodo(props) {
-  return (
-    <ul className="todo-list">
-      {props.list.map((item) => {
-        return (
-        <ItemTodo
-          id={item.id}
-          key={item.id}
-          text={item.text}
-          done={item.done}
-          save={props.save}
-          remove={props.remove}
-        />
-      )})}
-    </ul>
-  );
+class ListTodo extends Component {
+
+  render(){
+    return (
+      <ul className="todo-list">
+        {this.props.state.map((item) => {
+          return (
+          <ItemTodo
+            key={item.id}
+            id={item.id}
+            text={item.text}
+          />
+        )})}
+      </ul>
+    );
+  }
 }
 
-export default ListTodo;
+export default connect(
+  state => ({
+    state: state.listState
+  })
+)(ListTodo);

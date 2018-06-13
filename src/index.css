@@ -38,7 +38,7 @@ input[type='checkbox'] {
 }
 
 .item-text,
-input[type='text'] {
+input[type=text] {
   display: inline-block;
   width: 117px;
   min-height: 30px;
@@ -67,3 +67,20 @@ input[type='text'] {
 .item-todo input[type='checkbox']:checked + span .item-text {
   text-decoration: line-through;
 }
+
+/*  */
+
+/* .input-text,
+.save {
+  display: none;
+} */
+
+/* .edit .input-text,
+.edit .save {
+  display: inline-block;
+}
+
+.edit .item-text,
+.edit .remove {
+  display: none;
+} */

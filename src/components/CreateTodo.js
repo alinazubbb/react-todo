@@ -1,36 +1,36 @@
-import React, { Component } from "react";
-import Input from "./elements/Input";
-import Button from "./elements/Button";
+import React, { Component } from 'react';
+import Input from './elements/Input';
+import Button from './elements/Button';
+import { connect } from 'react-redux';
+import { add, change } from '../actions/pageActions';
 
 class CreateTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: ""
-    };
-  }
+  change = e => {
+    this.props.change(e.target.value);
+  };
 
-  changeHandler = (e) => {
-    this.setState({ inputValue: e.target.value });
-  }
-
-  addHandler = () => {
-    this.props.add(this.state.inputValue);
-    this.setState({ inputValue: "" });
-  }
+  add = () => {
+    this.props.add(this.props.state);
+    this.props.change('');
+  };
 
   render() {
     return (
       <div className="create-todo">
         <Input
           type="text"
-          value={this.state.inputValue}
-          changeHandler={this.changeHandler}
+          value={this.props.state}
+          changeHandler={this.change}
         />
-        <Button className="add" text="Add" clickHandler={this.addHandler} />
+        <Button className="add" text="Add" clickHandler={this.add} />
       </div>
     );
   }
 }
 
-export default CreateTodo;
+export default connect(
+  state => ({
+    state: state.inputState
+  }),
+  { add, change }
+)(CreateTodo);
