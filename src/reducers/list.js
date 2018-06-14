@@ -9,7 +9,7 @@ export default function list(state = initialState, action) {
       return state.map( curr => curr.id === action.payload.id ?
         { ...curr, text: action.payload.text } : curr );
     case 'INIT':
-      return state.concat(action.payload);
+      return state.concat(action.payload.list);
     default:
       return state;
   }
