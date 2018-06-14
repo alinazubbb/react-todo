@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Input from './elements/Input';
 import Button from './elements/Button';
 import { connect } from 'react-redux';
-import { save, remove } from '../actions/pageActions'
+import { save, remove } from '../actions/pageActions';
 
 class ItemTodo extends Component {
   constructor(props) {
@@ -70,7 +70,4 @@ class ItemTodo extends Component {
   }
 }
 
-export default connect(
-  null,
-  { save, remove }
-)(ItemTodo);
+export default connect( null, { save, remove } )(ItemTodo);

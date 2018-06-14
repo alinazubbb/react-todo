@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import ItemTodo from './ItemTodo';
-import { connect } from 'react-redux';
 
 class ListTodo extends Component {
   render(){
     return (
       <ul className="todo-list">
-        {this.props.state.map((item) => {
+        {this.props.store.map((item) => {
           return (
           <ItemTodo
             key={item.id}
@@ -19,4 +18,4 @@ class ListTodo extends Component {
   }
 }
 
-export default connect( state => ({ state: state.listState }) )(ListTodo);
+export default ListTodo;

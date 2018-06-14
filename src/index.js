@@ -5,7 +5,7 @@ import store from './store/configureStore'
 import { Provider } from 'react-redux';
 import './index.css';
 
-
+store.dispatch({type: 'INIT', payload: JSON.parse(localStorage.getItem('todos')).listState})
 
 ReactDOM.render(
   <Provider store={store}>
