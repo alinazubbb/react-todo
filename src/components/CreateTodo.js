@@ -10,7 +10,7 @@ class CreateTodo extends Component {
   };
 
   add = () => {
-    this.props.add(this.props.state.inputValue);
+    this.props.add(new Date().getTime(), this.props.state.inputValue);
     this.props.change('');
   };
 
@@ -28,9 +28,4 @@ class CreateTodo extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    state: state.inputState
-  }),
-  { add, change }
-)(CreateTodo);
+export default connect( state => ({ state: state.inputState }), { add, change } )(CreateTodo);

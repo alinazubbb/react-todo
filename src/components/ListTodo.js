@@ -3,7 +3,6 @@ import ItemTodo from './ItemTodo';
 import { connect } from 'react-redux';
 
 class ListTodo extends Component {
-
   render(){
     return (
       <ul className="todo-list">
@@ -20,8 +19,4 @@ class ListTodo extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    state: state.listState
-  })
-)(ListTodo);
+export default connect( state => ({ state: state.listState }) )(ListTodo);

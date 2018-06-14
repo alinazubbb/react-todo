@@ -1,20 +1,14 @@
-import todos from '../todos'
-
-const initialState = todos;
+const initialState = JSON.parse(localStorage.getItem('todos')).listState || [];
 
 export default function list(state = initialState, action) {
   switch (action.type) {
     case 'ADD':
-      return [ ...state, { id: new Date().getTime(), text: action.payload.text } ];
+      return state.concat({ id: action.payload.id, text: action.payload.text });
     case 'REMOVE':
-      return state.filter(function(el){ return el.id !== action.payload.id; });
+      return state.filter(({ id }) => id !== action.payload.id);
     case 'SAVE':
-      return state.map(function(curr){
-        if(curr.id === action.payload.id){
-          curr.text = action.payload.text;
-        }
-        return curr;
-      });
+      return state.map( curr => curr.id === action.payload.id ?
+        { ...curr, text: action.payload.text } : curr );
     default:
       return state;
   }
