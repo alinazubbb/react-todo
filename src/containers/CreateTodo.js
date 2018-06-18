@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Input from './elements/Input';
-import Button from './elements/Button';
+import Input from '../components/Input';
+import Button from '../components/Button';
 import { connect } from 'react-redux';
 import { add, change } from '../actions/pageActions';
 
@@ -10,7 +10,7 @@ class CreateTodo extends Component {
   };
 
   add = () => {
-    this.props.add(new Date().getTime(), this.props.state.inputValue);
+    this.props.add(Date.now(), this.props.inputValue);
     this.props.change('');
   };
 
@@ -19,7 +19,7 @@ class CreateTodo extends Component {
       <div className="create-todo">
         <Input
           type="text"
-          value={this.props.state.inputValue}
+          value={this.props.inputValue}
           changeHandler={this.change}
         />
         <Button className="add" text="Add" clickHandler={this.add} />
@@ -28,4 +28,7 @@ class CreateTodo extends Component {
   }
 }
 
-export default connect( state => ({ state: state.inputState }), { add, change } )(CreateTodo);
+export default connect(
+  ({ inputState: { inputValue } }) => ({ inputValue: inputValue }),
+  { add, change }
+)(CreateTodo);

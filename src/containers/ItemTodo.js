@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Input from './elements/Input';
-import Button from './elements/Button';
+import Input from '../components/Input';
+import Button from '../components/Button';
 import { connect } from 'react-redux';
 import { save, remove } from '../actions/pageActions';
+import PropTypes from 'prop-types';
 
 class ItemTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: props.text,
-      edit: false
-    };
-  }
+  
+  state = {
+    textInputValue: this.props.text,
+    doneValue: false,
+    edit: false
+  };
 
   remove = () => {
     this.props.remove(this.props.id);
@@ -21,7 +21,7 @@ class ItemTodo extends Component {
     this.setState({
       edit: false
     });
-    this.props.save(this.props.id, this.state.inputValue);
+    this.props.save(this.props.id, this.state.textInputValue);
   };
 
   editHandler = e => {
@@ -30,9 +30,15 @@ class ItemTodo extends Component {
     });
   };
 
-  changeHandler = e => {
+  textChangeHandler = e => {
     this.setState({
-      inputValue: e.target.value
+      textInputValue: e.target.value
+    });
+  };
+
+  doneChangeHandler = e => {
+    this.setState({
+      doneValue: !this.state.doneValue
     });
   };
 
@@ -44,8 +50,8 @@ class ItemTodo extends Component {
           {this.state.edit ? (
             <span>
               <Input
-                value={this.state.inputValue}
-                changeHandler={this.changeHandler}
+                value={this.state.textInputValue}
+                changeHandler={this.textChangeHandler}
                 autoFocus={true}
                 className="input-text"
                 type="text"
@@ -70,4 +76,12 @@ class ItemTodo extends Component {
   }
 }
 
-export default connect( null, { save, remove } )(ItemTodo);
+ItemTodo.propTypes = {
+  id: PropTypes.number,
+  text: PropTypes.string
+};
+
+export default connect(
+  null,
+  { save, remove }
+)(ItemTodo);

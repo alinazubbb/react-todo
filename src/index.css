@@ -20,6 +20,19 @@ input[type='checkbox'] {
   margin-right: 10px;
 }
 
+.nav{
+  text-align: center;
+}
+
+.nav a{
+  display: inline-block;
+  margin: 20px;
+}
+
+.page{
+  text-align: center;
+}
+
 .app {
   width: 400px;
   margin: auto;
@@ -84,3 +97,15 @@ input[type=text] {
 .edit .remove {
   display: none;
 } */
+
+.postItem{
+  border-bottom: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+.marker{
+  display: inline-block;
+  font-size: 20px;
+  background: yellow;
+  border: 1px solid #000;
+}
