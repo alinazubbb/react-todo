@@ -9,6 +9,7 @@ class Input extends Component {
         type={this.props.type}
         value={this.props.value}
         autoFocus={this.props.autoFocus}
+        placeholder={this.props.placeholder}
         onChange={this.props.changeHandler}
       />
     );
