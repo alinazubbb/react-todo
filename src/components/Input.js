@@ -11,6 +11,7 @@ class Input extends Component {
         autoFocus={this.props.autoFocus}
         placeholder={this.props.placeholder}
         onChange={this.props.changeHandler}
+        required={this.props.isRequired}
       />
     );
   }

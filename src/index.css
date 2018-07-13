@@ -135,3 +135,24 @@ input[type=text]{
   font-weight: 900;
   cursor: pointer;
 }
+
+.feedPosts{
+  max-width: 400px;
+  height: 200px;
+  margin: auto;
+  overflow: hidden;
+  background: #fcc;
+  text-align: left;
+}
+
+/* signup */
+.signup{
+  max-width: 400px;
+  margin: auto;
+  background: #ccc;
+  text-align: center;
+}
+.signup input{
+  display: inline-block;
+  margin-bottom: 15px;
+}

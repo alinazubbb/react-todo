@@ -6,7 +6,8 @@ import Input from '../components/Input';
 
 class Page1 extends Component {
   state = {
-    inputValue: ''
+    inputValue: '',
+    currPost: {}
   };
 
   changeSearchValue = e => {
@@ -17,8 +18,8 @@ class Page1 extends Component {
 
   filteredList = () => {
     const filtered = this.props.jsonState.data.filter(
-      el => ~el.title.indexOf(this.state.inputValue))
-    // console.log('filtered', filtered);
+      el => ~el.title.indexOf(this.state.inputValue)
+    );
     return filtered;
   };
 
@@ -38,6 +39,26 @@ class Page1 extends Component {
     </li>
   );
 
+  fetchPost = id =>
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res =>
+      res.json()
+    );
+
+  getPost = async id => {
+    let post = await this.fetchPost(id);
+    this.setState({
+      currPost: post
+    });
+  };
+
+  showFeed() {
+    let id = 98;
+    setInterval(() => {
+      this.getPost(id);
+      id = id === 100 ? 1 : id + 1;
+    }, 3000);
+  }
+
   render() {
     if (this.props.jsonState.error) {
       return <div>error</div>;
@@ -47,6 +68,17 @@ class Page1 extends Component {
     }
     return (
       <div className="page1">
+        <hr />
+        <h3>News</h3>
+        <div className="feedPosts">
+          <span className="marker">ID</span> {this.state.currPost.id} <br />
+          <span className="marker">USER ID</span> {this.state.currPost.userId}{' '}
+          <br />
+          <span className="marker">TITLE</span> {this.state.currPost.title}{' '}
+          <br />
+          <span className="marker">BODY</span> {this.state.currPost.body} <br />
+        </div>
+        <hr />
         <h1>Page 1 content</h1>
         <h2>SEARCH</h2>
         <Input
@@ -54,6 +86,7 @@ class Page1 extends Component {
           placeholder="Search"
           changeHandler={this.changeSearchValue}
         />
+        <p>Find {this.filteredList().length} items</p>
         <ul className="posts">
           {this.filteredList().map(this.listItemMapper)}
         </ul>
@@ -63,6 +96,7 @@ class Page1 extends Component {
 
   componentDidMount() {
     this.props.fetchJson();
+    this.showFeed();
   }
 }
 
