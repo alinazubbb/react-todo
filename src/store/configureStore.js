@@ -1,7 +1,14 @@
 import { createStore, applyMiddleware } from 'redux';
+import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk'
+// import logger from 'redux-logger'
 import rootReducer from '../reducers/index';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+export const history = createHistory();
 
-export default store;
+const middlewares = [ 
+  thunk,
+  // logger 
+]
+
+export const store = createStore(rootReducer, applyMiddleware(...middlewares));

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 import { connect } from 'react-redux';
-import { save, remove } from '../actions/pageActions';
+import { save, remove } from '../../actions/pageActions';
 import PropTypes from 'prop-types';
 
 class ItemTodo extends Component {

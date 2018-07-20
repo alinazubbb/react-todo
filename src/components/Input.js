@@ -12,6 +12,8 @@ class Input extends Component {
         placeholder={this.props.placeholder}
         onChange={this.props.changeHandler}
         required={this.props.isRequired}
+        checked={this.props.checked}
+        id={this.props.id}
       />
     );
   }

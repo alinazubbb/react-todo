@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 import { connect } from 'react-redux';
-import { add, change } from '../actions/pageActions';
+import { add, change } from '../../actions/pageActions';
 
 class CreateTodo extends Component {
   change = e => {

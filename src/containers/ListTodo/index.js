@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ItemTodo from './ItemTodo';
-import Button from '../components/Button';
+import ItemTodo from '../ItemTodo';
+import Button from '../../components/Button';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { sortFromNew, sortFromOld, sortFromHour } from '../actions/pageActions';
+import { sortFromNew, sortFromOld, sortFromHour } from '../../actions/pageActions';
 
 class ListTodo extends Component {
   sortOld = () => {
@@ -17,10 +17,6 @@ class ListTodo extends Component {
   sortHour = () => {
     this.props.sortFromHour();
   };
-
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
 
   render() {
     return (
